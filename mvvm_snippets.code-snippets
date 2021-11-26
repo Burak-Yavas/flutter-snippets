@@ -1,0 +1,70 @@
+{
+	"Singleton Lazy": {
+		"scope": "dart",
+		"prefix": "mvvmlazy",
+		"body": [
+			"class $1 {",
+			"static $1? _instace;",
+			"static $1 get instance {",
+			"_instace ??= $1._init();",
+			"return _instace!;",
+			"}",
+			"$1._init();",
+			"}"
+		],
+		"description": "Mvvm Lazy Singleton Create"
+	},
+	"Eager Singleton": {
+		"scope": "dart",
+		"prefix": "mvvmEager",
+		"body": [
+			"class $1 {",
+			"static final $1? _instance = $1._init();",
+			"static $1? get instance => _instance;",
+			"$1._init();",
+			"}"
+		],
+		"description": "Mvvm Eager Singleton Create"
+	},
+	"Base View Model": {
+		"scope": "dart",
+		"prefix": "mvvmBaseViewModel",
+		"body": [
+			"@override",
+			"void setContext(BuildContext context) => this.context = context;",
+			"@override",
+			"void init() {}"
+		]
+	},
+	"Base View ": {
+		"scope": "dart",
+		"prefix": "mvvmBaseView",
+		"body": [
+			"BaseView<$1>(",
+			"viewModel: $1(),",
+			"onModelReady: (model) {",
+			" model.setContext(context);",
+			" model.init();",
+			"},",
+			"onPageBuilder: (BuildContext context,$1 value) => Scaffold(),",
+			");"
+		]
+	},
+	"Base Model ": {
+		"scope": "dart",
+		"prefix": "mvvmBaseModel",
+		"body": [
+			"part'$1.g.dart'",
+			"@JsonSerializable()",
+			"class $2 extends $2 INetworkModel<$1>{",
+			"@override",
+			"Map<String, dynamic> toJson() {",
+			"return _$$2ToJson(this);",
+			"}",
+			"@override",
+			"$2 fromJson(Map<String, dynamic> json) {",
+			"return _$$2FromJson(json);",
+			"}"
+		]
+	},
+}
